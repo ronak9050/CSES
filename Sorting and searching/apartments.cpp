@@ -8,12 +8,8 @@ int main(){
     int n,m,k;
     cin>>n>>m>>k;
     vector<int> a(n),b(m);
-    for(int i=0; i<n; i++){
-        cin>>a[i];
-    }
-    for(int i=0; i<m; i++){
-        cin>>b[i];
-    }
+    for(int i=0; i<n; i++) cin>>a[i];
+    for(int i=0; i<m; i++)cin>>b[i];
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
 
@@ -34,8 +30,21 @@ int main(){
             }
         }
     }
+
+    // 2nd approach
+//     int ind=0,ans=0;
+//     for(int i=0; i<m; i++){
+//         auto it = lower_bound(a.begin()+ind,a.end(),b[i]-k);
+//         ind = it-a.begin();
+//         if(*it>=b[i]-k && *it<=b[i]+k){
+//             ind++;
+//             ans++;
+//         }
+//     }
+
     cout<<ans<<endl;
 
 
     return 0;
 }
+

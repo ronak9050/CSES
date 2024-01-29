@@ -34,9 +34,26 @@ int main(){
 
         }
     }
+
+    
+    // similar code 
+    // int ind=n,ans=0;
+    // vector<bool> vis(n,0);
+    // for(int i=0; i<n; i++){
+    //     if(vis[i]) continue;
+    //     // cout<<a[i]<<" ";
+    //     auto it = upper_bound(a.begin()+i,a.begin()+ind,x-a[i]);
+    //     ans++;
+    //     it--;
+    //     if(it-a.begin()>i && *it+a[i]<=x) vis[it-a.begin()]=1;
+    //     else it++;
+    //     ind=it-a.begin();
+    // }
+
+
     cout<<ans<<endl;
 
-
+    
 
     return 0;
 }
