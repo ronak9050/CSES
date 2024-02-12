@@ -10,18 +10,19 @@ int main(){
     vector<ll> a(n),psum(n,0);
     map<ll,ll> mp;
     for(int i=0; i<n; i++) cin>>a[i];
+
     psum[0]=a[0];
-    mp[a[0]%n]++;
+    mp[(a[0]%n+n)%n]++;
     for(int i=1; i<n; i++){
         psum[i]=psum[i-1]+a[i];
-        mp[psum[i]%n]++;
+        mp[(psum[i]%n+n)%n]++;
     }
 
     ll ans=mp[0];
 
     for(int i=0; i<n; i++){
-        mp[psum[i]%n]--;
-        ans+=mp[psum[i]%n];
+        mp[(psum[i]%n+n)%n]--;
+        ans+=mp[(psum[i]%n+n)%n];
     }
     cout<<ans<<endl;
     return 0;
