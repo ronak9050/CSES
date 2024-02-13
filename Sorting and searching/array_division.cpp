@@ -8,18 +8,29 @@ int main(){
     int n,k;
     cin>>n>>k;
     vector<ll> a(n);
-    ll sum=0,mx=0;
+    ll high=0,low=0;
     for(int i=0; i<n; i++){
         cin>>a[i];
-        mx=max(mx,a[i]);
-        sum+=a[i];
+        low=max(low,a[i]);
+        high+=a[i];
     }
     
-    ll tp = (ceil(float(sum/k)));
-    mx = max(mx,tp);
-    ll cursum=0;
-    for(int i=0; i<k; i++){
-        
+    while(low<high){
+        ll mid=(low+high)/2;
+        int ct=0;
+        ll sum=0;
+        for(int i=0; i<n; i++){
+            if(sum+a[i]>mid){
+                sum=0;
+                ct++;
+            }
+            sum+=a[i];
+        }
+        ct++;
+        if(ct>k) low=mid+1;
+        else high=mid;
+        // cout<<mid<<" "<<ct<<endl;
     }
+    cout<<low<<endl;
     return 0;
 }
